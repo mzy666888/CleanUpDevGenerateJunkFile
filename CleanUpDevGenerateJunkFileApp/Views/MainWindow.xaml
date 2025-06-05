@@ -24,34 +24,27 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Text="选择路径：">
-                </TextBlock>
-                <TextBox Width="400" Text="{Binding FolderDir}">
-                </TextBox>
-                <Button Command="{Binding BrowseFolderCommand}" Content="...">
-                </Button>
+                <TextBlock VerticalAlignment="Center" Text="选择路径：" />
+                <TextBox Width="400" Text="{Binding FolderDir}" />
+                <Button Command="{Binding BrowseFolderCommand}" Content="..." />
                 <Button
                     Margin="10,0,0,0"
                     Command="{Binding FindFolderCommand}"
-                    Content="查找">
-                </Button>
+                    Content="查找" />
                 <Button
                     Margin="10,0,0,0"
                     Command="{Binding DeleteFileCommand}"
-                    Content="删除">
-                </Button>
+                    Content="删除" />
             </StackPanel>
             <StackPanel
                 Margin="0,20,0,0"
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
-                <CheckBox Content="Obj" IsChecked="{Binding ObjChecked}">
-                </CheckBox>
+                <CheckBox Content="Obj" IsChecked="{Binding ObjChecked}" />
                 <CheckBox
                     Margin="20,0,0,0"
                     Content="Bin"
-                    IsChecked="{Binding BinChecked}">
-                </CheckBox>
+                    IsChecked="{Binding BinChecked}" />
             </StackPanel>
         </StackPanel>
         <Border Grid.Row="1">
@@ -61,9 +54,9 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="{x:Type viewModels:FolderViewModel}">
                                 <StackPanel Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding IsChecked}"/>
+                                    <CheckBox IsChecked="{Binding IsChecked}" />
 
-                                    <TextBlock Text="{Binding FolderName}"/>
+                                    <TextBlock Text="{Binding FolderName}" />
 
                                 </StackPanel>
                             </DataTemplate>
@@ -73,5 +66,22 @@
             </ScrollViewer>
         </Border>
         <!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
+        <Grid
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Background="LightGray"
+            Opacity="0.5"
+            Visibility="{Binding MaskVisibility}">
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" Text="正在查找中...">
+                </TextBlock>
+                <ProgressBar
+                    Height="20"
+                    IsIndeterminate="True"
+                    Value="40" />
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>
