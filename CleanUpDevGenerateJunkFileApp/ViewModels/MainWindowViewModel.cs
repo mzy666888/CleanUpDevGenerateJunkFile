@@ -46,6 +46,7 @@ public partial class MainWindowViewModel : ObservableObject
     [NotifyCanExecuteChangedFor(nameof(DeleteFileCommand))]
     public partial int ItemsCount { get; set; }
 
+    #region
     [RelayCommand]
     public void BrowseFolder()
     {
@@ -99,4 +100,5 @@ public partial class MainWindowViewModel : ObservableObject
             }
         });
     }
+    #endregion
 }
